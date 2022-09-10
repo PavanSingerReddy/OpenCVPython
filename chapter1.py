@@ -1,15 +1,9 @@
 import cv2
 
-cap = cv2.VideoCapture(0)
+img = cv2.imread("Resources/pic1.jpg")
 
-cap.set(3,1920)
-cap.set(4,1080)
-cap.set(10,50)
+imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
+cv2.imshow("Gray Imgae",imgGray)
 
-while True :
-    success, img = cap.read()
-    cv2.imshow("Video",img)
-    if cv2.waitKey(10) & 0xFF   ==ord('q'):
-        break
-
+cv2.waitKey(0)
