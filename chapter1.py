@@ -1,9 +1,11 @@
 import cv2
 
-print("Package Imported")
+cap = cv2.VideoCapture("Resources/SampleVideo.mp4")
 
-img = cv2.imread("Resources/pic1.jpg")
 
-cv2.imshow("Output",img)
+while True :
+    success, img = cap.read()
+    cv2.imshow("Video",img)
+    if cv2.waitKey(10) & 0xFF   ==ord('q'):
+        break
 
-cv2.waitKey(0)
