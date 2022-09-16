@@ -37,8 +37,10 @@ def stackImages(scale,imgArray):
 
 
 img = cv2.imread("Resources/SampleImage.jpg")
+imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
-imgStack = stackImages(0.5,([img,img,img],[img,img,img]))
+
+imgStack = stackImages(0.5,([img,imgGray,img],[img,img,img]))
 
 cv2.imshow("ImageStack",imgStack)
 
