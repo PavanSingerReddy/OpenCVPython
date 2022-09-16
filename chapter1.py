@@ -38,7 +38,7 @@ def stackImages(scale,imgArray):
 
 img = cv2.imread("Resources/SampleImage.jpg")
 
-imgStack = stackImages(0.5,([img,img,img]))
+imgStack = stackImages(0.5,([img,img,img],[img,img,img]))
 
 cv2.imshow("ImageStack",imgStack)
 
