@@ -30,7 +30,7 @@ while True:
     v_min =cv2.getTrackbarPos("Val Min","TrackBars")
     v_max =cv2.getTrackbarPos("Val Max","TrackBars")
 
-    print(h_min)
+    print(h_min,h_max,s_min,s_max,v_min,v_max)
 
     cv2.imshow("Original",img)
 
