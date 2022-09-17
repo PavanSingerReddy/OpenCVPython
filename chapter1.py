@@ -42,10 +42,12 @@ def getContors(img) :
         if area > 500:
             cv2.drawContours(imgContour,cnt,-1,(255,0,0),3)
             peri = cv2.arcLength(cnt,closed=True)
-            print(peri)
+            # print(peri)
             approx = cv2.approxPolyDP(cnt,0.03*peri,True)
             print(len(approx))
-
+            objCor = len(approx)
+            x,y,width,height = cv2.boundingRect(approx)
+            cv2.rectangle(imgContour,(x,y),(x+width,y+height),(0,255,0),2)
 
 path = 'Resources/shapes.png'
 img = cv2.imread(path)
