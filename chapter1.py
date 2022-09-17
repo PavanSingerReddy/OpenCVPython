@@ -44,7 +44,7 @@ def getContors(img) :
             peri = cv2.arcLength(cnt,closed=True)
             print(peri)
             approx = cv2.approxPolyDP(cnt,0.03*peri,True)
-            print(approx)
+            print(len(approx))
 
 
 path = 'Resources/shapes.png'
