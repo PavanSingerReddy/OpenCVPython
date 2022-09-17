@@ -43,7 +43,7 @@ def getContors(img) :
             cv2.drawContours(imgContour,cnt,-1,(255,0,0),3)
             peri = cv2.arcLength(cnt,closed=True)
             print(peri)
-            approx = cv2.approxPolyDP(cnt,0.02*peri,True)
+            approx = cv2.approxPolyDP(cnt,0.03*peri,True)
             print(approx)
 
 
