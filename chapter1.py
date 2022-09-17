@@ -41,6 +41,8 @@ def getContors(img) :
         print(area)
         if area > 500:
             cv2.drawContours(imgContour,cnt,-1,(255,0,0),3)
+            peri = cv2.arcLength(cnt,closed=True)
+            print(peri)
 
 
 
