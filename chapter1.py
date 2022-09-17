@@ -9,9 +9,9 @@ def empty(a):
 path = "Resources/cars.jpeg"
 cv2.namedWindow("TrackBars")
 cv2.resizeWindow("TrackBars",640,240)
-cv2.createTrackbar("Hue Min","TrackBars",0,179,empty)
+cv2.createTrackbar("Hue Min","TrackBars",85,179,empty)
 cv2.createTrackbar("Hue Max","TrackBars",179,179,empty)
-cv2.createTrackbar("Sat Min","TrackBars",0,255,empty)
+cv2.createTrackbar("Sat Min","TrackBars",8,255,empty)
 cv2.createTrackbar("Sat Max","TrackBars",255,255,empty)
 cv2.createTrackbar("Val Min","TrackBars",0,255,empty)
 cv2.createTrackbar("Val Max","TrackBars",255,255,empty)
