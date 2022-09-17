@@ -39,10 +39,13 @@ def getContors(img) :
     for cnt in contours:
         area = cv2.contourArea(cnt)
         print(area)
+        cv2.drawContours(imgContour,cnt,-1,(255,0,0),3)
+
 
 
 path = 'Resources/shapes.png'
 img = cv2.imread(path)
+imgContour = img.copy()
 
 
 imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -52,7 +55,7 @@ getContors(imgCanny)
 
 imgBlank = np.zeros_like(img)      #normal blank image this is not required we have took it to stack the images
 
-imgStack = stackImages(1,([img,imgGray,imgBlur],[imgCanny,imgBlank,imgBlank]))
+imgStack = stackImages(1,([img,imgGray,imgBlur],[imgCanny,imgContour,imgBlank]))
 
 
 cv2.imshow("Stack",imgStack)
