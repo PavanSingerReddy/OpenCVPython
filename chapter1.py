@@ -49,6 +49,10 @@ def getContors(img) :
             x,y,width,height = cv2.boundingRect(approx)
 
             if objCorners == 3 : objectType = "Tri"
+            elif objCorners == 4 :
+                aspRatio = width/float(height)
+                if aspRatio > 0.95 and aspRatio < 1.05 : objectType = "Square"
+                else:objectType = "Rectangle"
             else:objectType = "None"
 
             cv2.rectangle(imgContour,(x,y),(x+width,y+height),(0,255,0),2)
