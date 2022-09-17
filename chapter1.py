@@ -40,10 +40,12 @@ img = cv2.imread(path)
 
 imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 imgBlur = cv2.GaussianBlur(imgGray,(7,7),1)
+imgCanny = cv2.Canny(imgBlur,50,50)
 
 
+imgBlank = np.zeros_like(img)      #normal blank image this is not required we have took it to stack the images
 
-imgStack = stackImages(1,([img,imgGray,imgBlur]))
+imgStack = stackImages(1,([img,imgGray,imgBlur],[imgCanny,imgBlank,imgBlank]))
 
 
 cv2.imshow("Stack",imgStack)
