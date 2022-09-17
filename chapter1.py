@@ -39,7 +39,8 @@ def getContors(img) :
     for cnt in contours:
         area = cv2.contourArea(cnt)
         print(area)
-        cv2.drawContours(imgContour,cnt,-1,(255,0,0),3)
+        if area > 500:
+            cv2.drawContours(imgContour,cnt,-1,(255,0,0),3)
 
 
 
