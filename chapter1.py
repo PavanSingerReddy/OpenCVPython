@@ -37,10 +37,14 @@ while True:
 
     mask =cv2.inRange(imgHSV,lower,upper)
 
+    imgResult = cv2.bitwise_and(img,img,mask=mask)
+
     cv2.imshow("Original",img)
 
     cv2.imshow("HSV",imgHSV)
 
     cv2.imshow("Mask",mask)
+
+    cv2.imshow("Result",imgResult)
 
     cv2.waitKey(1)
