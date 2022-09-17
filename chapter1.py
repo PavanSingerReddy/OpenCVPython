@@ -45,9 +45,14 @@ def getContors(img) :
             # print(peri)
             approx = cv2.approxPolyDP(cnt,0.03*peri,True)
             print(len(approx))
-            objCor = len(approx)
+            objCorners = len(approx)
             x,y,width,height = cv2.boundingRect(approx)
+
+            if objCorners == 3 : objectType = "Tri"
+            else:objectType = "None"
+
             cv2.rectangle(imgContour,(x,y),(x+width,y+height),(0,255,0),2)
+            cv2.putText(imgContour,objectType,(x+(width//2)-10,y+(height//2)),cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,0,0),2)
 
 path = 'Resources/shapes.png'
 img = cv2.imread(path)
