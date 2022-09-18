@@ -18,12 +18,15 @@ def findColor(img,myColors):
         lower = np.array(color[0:3])
         upper = np.array(color[3:6])
         mask = cv2.inRange(imgHSV,lower,upper)
-        getContours(mask)
+        x,y=getContours(mask)
+        cv2.circle(imgResult,(x,y),10,(255,0,0),cv2.FILLED)
+
         # cv2.imshow(str(color[0]),mask)
 
 
 def getContours(img):
     contours,hierarchy = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+    x,y,width,height = 0,0,0,0
     for cnt in contours:
         area = cv2.contourArea(cnt)
         if area > 500:
@@ -31,6 +34,7 @@ def getContours(img):
             peri=cv2.arcLength(cnt,True)
             approx = cv2.approxPolyDP(cnt,0.03*peri,True)
             x,y,width,height = cv2.boundingRect(approx)
+    return x+(width//2),y
 
 while True:
     success,img = cap.read()
